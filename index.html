@@ -30,7 +30,7 @@
 </div>
 <div>
 
-    <div class=" flex justify-center items-center gap-5 pt-3 ">
+    <div class=" flex justify-center items-center gap-5 pt-3 flex-wrap " id="fathercard">
         <div class="  border border-gray-600 flex flex-col justify-center items-center rounded-md shadow-md shadow-gray-500  "> 
             <img src="/src/images/man.jpg" alt="">
             <p class=" text-xl font-bold" id="namekala"></p>
@@ -43,19 +43,19 @@
                 <button class="bg-slate-500 border border-gray-900 hover:bg-slate-400 transition-all  rounded-md p-1">افزودن به سبد</button>
             </div>
         </div>
-        <div class=" px-6 flex flex-col gap-2 ">
-            <button onclick="showAndhidden()" class=" border-4 hover:bg-blue-800 transition-all border-blue-600 rounded-md bg-blue-500 p-2 text-white font-bold "> افزودن محصول + </button>
-            <div class=" border hidden border-black rounded-md shadow-md hover:border-blue-500 p-4 gap-3 transition-all" id="addprocudt" dir="rtl">
-                <div class="py-2">
-                    <label for="nameproduct">نام محصول</label>
-                    <input type="text" name="nameproduct" class="border rounded-md hover:border-gray-700 transition-all text-sm p-1 hover:text-blue-500" id="nameproduct" placeholder="کیف زنانه">
-                </div>
-                <div class=" py-2">
-                    <label for="tax">قیمت:</label>
-                    <input type="number" name="tax" class=" border rounded-md hover:border-gray-700 transition-all text-sm p-1 hover:text-blue-500"  id="tax" placeholder="350">
-                </div>
-                    <button class="  border-green-600 rounded-md p-2 bg-green-500 text-white font-bold border-4 hover:bg-green-800 transition-all w-full my-4" onclick="addprocudts()" >ثبت درخواست</button>
+    </div>
+    <div class=" px-6 flex flex-col gap-2 ">
+        <button onclick="showAndhidden()" class=" border-4 hover:bg-blue-800 transition-all border-blue-600 rounded-md bg-blue-500 p-2 text-white font-bold "> افزودن محصول + </button>
+        <div class=" border hidden border-black rounded-md shadow-md hover:border-blue-500 p-4 gap-3 transition-all" id="addprocudt" dir="rtl">
+            <div class="py-2">
+                <label for="nameproduct">نام محصول</label>
+                <input type="text" name="nameproduct" class="border rounded-md hover:border-gray-700 transition-all text-sm p-1 hover:text-blue-500" id="nameproduct" placeholder="کیف زنانه">
             </div>
+            <div class=" py-2">
+                <label for="tax">قیمت:</label>
+                <input type="number" name="tax" class=" border rounded-md hover:border-gray-700 transition-all text-sm p-1 hover:text-blue-500"  id="tax" placeholder="350">
+            </div>
+                <button class="  border-green-600 rounded-md p-2 bg-green-500 text-white font-bold border-4 hover:bg-green-800 transition-all w-full my-4" onclick="addprocudts()" >ثبت درخواست</button>
         </div>
     </div>
 
