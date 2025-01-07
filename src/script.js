@@ -8,14 +8,16 @@ const fathercard =document.getElementById('fathercard');
 
 
 
+
 if(localproduct){
     const parseproduct = JSON.parse(localproduct)
     allprodcts.push(...parseproduct)
     document.getElementById('namekala').textContent = allprodcts.reverse()[0].nameitem; 
     document.getElementById('taxkala').textContent = allprodcts.reverse()[0].taxitem;
+    document.getElementById('imgshow').src = allprodcts.reverse()[0].srcimg;
     console.log(parseproduct)
     parseproduct.forEach(element => {
-        addf(element.nameitem,element.taxitem);
+        addf(element.nameitem,element.taxitem,element.srcimg);
     });
 
 
@@ -28,12 +30,12 @@ if(localproduct){
 
 
 
-function addf(a,b){
+function addf(a,b,c){
 const creatcard = document.createElement('div');
     creatcard.innerHTML =`
     <div class=" flex justify-center items-center gap-5 pt-3 ">
         <div class="  border border-gray-600 flex flex-col justify-center items-center rounded-md shadow-md shadow-gray-500  "> 
-            <img src="/src/images/man.jpg" alt="">
+            <img  src="${c}" alt="" id="imgshow">
             <p class=" text-xl font-bold" id="namekala">"${a}"</p>
             <div class=" flex justify-between px-1 w-full">
                 <p class=" text-md " id="taxkala">${b}</p>
@@ -52,16 +54,30 @@ const creatcard = document.createElement('div');
 function addprocudts(){
     const nameproducts = getnameproduct();
     const producttaxs = gettaxproduct();
-    
-    
+    const imgwoman = getwomanimg();
+ 
     if (nameproducts &&  producttaxs){
-        allprodct.nameitem = nameproducts;
-        allprodct.taxitem = producttaxs;
-        allprodcts.push(allprodct)
-        localStorage.setItem("names", JSON.stringify(allprodcts));
-        console.log(allprodct)
-        console.log(allprodcts)
-        addf(allprodct.nameitem,allprodct.taxitem);
+        
+        if(imgwoman == false){
+            allprodct.nameitem = nameproducts;
+            allprodct.taxitem = producttaxs;
+            allprodct.srcimg = '/src/images/man.jpg';
+            allprodcts.push(allprodct);
+            localStorage.setItem("names", JSON.stringify(allprodcts));
+            console.log(allprodct);
+            console.log(allprodcts);
+            addf(allprodct.nameitem,allprodct.taxitem,allprodct.srcimg);
+        }else{ 
+            allprodct.nameitem = nameproducts;
+            allprodct.taxitem = producttaxs;
+            allprodct.srcimg = '/src/images/woman.jpg';
+            allprodcts.push(allprodct)
+            localStorage.setItem("names", JSON.stringify(allprodcts));
+            console.log(allprodct);
+            console.log(allprodcts);
+            addf(allprodct.nameitem,allprodct.taxitem,allprodct.srcimg);
+        }
+ 
 
 
 
@@ -104,6 +120,10 @@ function getnameproduct(){
     
 }
 
+}
+function getwomanimg (){
+        let checkimg = document.getElementById('images-input').checked;
+        return checkimg;
 }
 function showAndhidden(){
     addprocudt.classList.toggle('hidden')
