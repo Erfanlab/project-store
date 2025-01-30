@@ -2,7 +2,6 @@
 console.log('welcome to erfan shop')
 let addprocudt = document.getElementById('addprocudt');
 const allprodcts = [];
-const allprodct ={};
 const localproduct = localStorage.getItem("names");
 const fathercard =document.getElementById('fathercard');
 
@@ -54,6 +53,8 @@ const creatcard = document.createElement('div');
 function addprocudts(){
     const nameproducts = getnameproduct();
     const producttaxs = gettaxproduct();
+const allprodct ={};
+
     const imgwoman = getwomanimg();
  
     if (nameproducts &&  producttaxs){
