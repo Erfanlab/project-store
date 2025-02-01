@@ -33,13 +33,13 @@ const creatcard = document.createElement('div');
     <div class=" flex justify-center items-center gap-5 pt-3 cardi">
         <div class="  border border-gray-600 flex flex-col justify-center items-center rounded-md shadow-md shadow-gray-500  "> 
             <img  src="${c}" alt="" id="imgshow">
-            <p class=" text-xl font-bold namekala" id="namekala">"${a}"</p>
+            <p class=" text-xl font-bold namekala" id="namekala">${a}</p>
             <div class=" flex justify-between px-1 w-full">
                 <p class=" text-md taxkala" id="taxkala">${b}</p>
                 <p class=" font-bold text-md ">:قیمت</p>
             </div>
             <div class=" flex justify-around w-full py-5 px-0 text-white font-bold">
-                <button class="deletecard bg-slate-500 border border-gray-900 hover:bg-slate-400 transition-all rounded-md p-1">جزییات</button>   
+                <button class="deletecard bg-slate-500 border border-gray-900 hover:bg-slate-400 transition-all rounded-md p-1">حذف</button>   
                 <button class="bg-slate-500 border border-gray-900 hover:bg-slate-400 transition-all  rounded-md p-1">افزودن به سبد</button>
             </div>
         </div>
@@ -143,15 +143,11 @@ function deleteProduct(event) {
     const button = event.target;
     const card = button.closest('.cardi');
     const taxkalaremove = String(card.querySelector('.namekala').textContent);
-    
     if (card) {
-        // card.remove();
-        // allprodcts.pop();
-        let kibi = allprodcts.findIndex((x)=> x.nameitem)
-        console.log(kibi)
-        console.log(taxkalaremove)
-        localStorage.setItem("names", JSON.stringify(allprodcts));
-
+        let kibi = allprodcts.filter((x)=> x.nameitem !== taxkalaremove);
+        localStorage.setItem("names", JSON.stringify(kibi));
+        console.log(kibi);
+        console.log(allprodcts);
         }
 }
 
