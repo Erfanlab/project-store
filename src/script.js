@@ -146,6 +146,7 @@ function deleteProduct(event) {
     if (card) {
         let kibi = allprodcts.filter((x)=> x.nameitem !== taxkalaremove);
         localStorage.setItem("names", JSON.stringify(kibi));
+        card.remove();
         console.log(kibi);
         console.log(allprodcts);
         }
