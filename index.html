@@ -20,8 +20,13 @@
             <li class="bg-slate-400 hover:border-r-4 flex justify-end items-center rounded-md py-1 px-2 hover:bg-gray-950 transition-all ">زنانه</li> 
         </ul>
         <div class=" flex gap-2">
-            <button class=" border-gray-600 border-solid border rounded-md p-2 hover:bg-gray-950 transition-all"> سفارشات</button>
-            <button class=" border-gray-600 border-solid border rounded-md p-2 hover:bg-gray-950 transition-all">حساب کاربری</button>
+            <div class=" relative">
+                <button class=" border-gray-600 border-solid border rounded-md p-2 hover:bg-gray-950 transition-all"> سفارشات</button>
+                <div class="px-1 bg-red-400 rounded-full absolute left-0 top-0 text-red-800 font-bold bg-opacity-80 text-xs" id="counter-user">0</div>
+            </div>
+            <button class=" border-gray-600 border-solid border rounded-md p-2 hover:bg-gray-950 transition-all">
+                حساب کاربری                
+            </button>
         </div>
     </nav>
 </header>
@@ -43,7 +48,7 @@
             </div>
             <div class=" flex justify-around w-full py-5 px-0 text-white font-bold">
                 <button  class="deletecard bg-slate-500 border border-gray-900 hover:bg-slate-400 transition-all rounded-md p-1">جزییات</button>   
-                <button class="bg-slate-500 border border-gray-900 hover:bg-slate-400 transition-all  rounded-md p-1">افزودن به سبد</button>
+                <button class="bg-slate-500 border border-gray-900 hover:bg-slate-400 transition-all  rounded-md p-1 addbasket">افزودن به سبد</button>
             </div>
         </div>
     </div>

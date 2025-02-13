@@ -3,8 +3,10 @@ console.log('welcome to erfan shop')
 let addprocudt = document.getElementById('addprocudt');
 const allprodcts = [];
 const localproduct = localStorage.getItem("names");
+const localcounterUser = localStorage.getItem('counteruser');
 const fathercard =document.getElementById('fathercard');
 
+console.log(localcounterUser)
 
 if(localproduct){
     const parseproduct = JSON.parse(localproduct)
@@ -12,6 +14,7 @@ if(localproduct){
     document.getElementById('namekala').textContent = allprodcts.reverse()[0].nameitem; 
     document.getElementById('taxkala').textContent = allprodcts.reverse()[0].taxitem;
     document.getElementById('imgshow').src = allprodcts.reverse()[0].srcimg;
+    document.getElementById('counter-user').textContent = localcounterUser;
     console.log(parseproduct)
     parseproduct.forEach(element => {
         addf(element.nameitem,element.taxitem,element.srcimg);
@@ -40,7 +43,7 @@ const creatcard = document.createElement('div');
             </div>
             <div class=" flex justify-around w-full py-5 px-0 text-white font-bold">
                 <button class="deletecard bg-slate-500 border border-gray-900 hover:bg-slate-400 transition-all rounded-md p-1">حذف</button>   
-                <button class="bg-slate-500 border border-gray-900 hover:bg-slate-400 transition-all  rounded-md p-1">افزودن به سبد</button>
+                <button class="bg-slate-500 border border-gray-900 hover:bg-slate-400 transition-all  rounded-md p-1 addbasket">افزودن به سبد</button>
             </div>
         </div>
     </div>
@@ -125,19 +128,10 @@ function getwomanimg (){
         return checkimg;
 }
 function showAndhidden(){
-    addprocudt.classList.toggle('hidden')
+    addprocudt.classList.toggle('hidden');
 }
-// 
 
-
-
-
-
-
-
-
-
-
+// delete products
 
 function deleteProduct(event) {
     const button = event.target;
@@ -157,3 +151,24 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', deleteProduct);
     });
 });
+
+//  counter add basket 2025/13/02
+
+function addcounter(){
+    let  counterUserNumber = Number(document.getElementById('counter-user').textContent);
+    const parseproduct = JSON.parse(localproduct);
+    let newcounter = parseproduct.length;
+    counterUserNumber = newcounter;
+    document.getElementById('counter-user').textContent = counterUserNumber
+    localStorage.setItem("counteruser", JSON.stringify(counterUserNumber));
+    console.log(counterUserNumber)
+}
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    document.querySelectorAll('.addbasket').forEach(button => {
+        button.addEventListener('click',addcounter)
+    })
+
+})
+
+
