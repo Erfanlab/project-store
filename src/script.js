@@ -1,29 +1,24 @@
-
 console.log('welcome to erfan shop')
 let addprocudt = document.getElementById('addprocudt');
 const allprodcts = [];
 const localproduct = localStorage.getItem("names");
 const localcounterUser = localStorage.getItem('counteruser');
 const fathercard =document.getElementById('fathercard');
-
-console.log(localcounterUser)
-
+console.log(localcounterUser);
 if(localproduct){
+    document.getElementById('counter-user').textContent = localcounterUser;
     const parseproduct = JSON.parse(localproduct)
     allprodcts.push(...parseproduct)
     document.getElementById('namekala').textContent = allprodcts.reverse()[0].nameitem; 
     document.getElementById('taxkala').textContent = allprodcts.reverse()[0].taxitem;
     document.getElementById('imgshow').src = allprodcts.reverse()[0].srcimg;
-    document.getElementById('counter-user').textContent = localcounterUser;
     console.log(parseproduct)
     parseproduct.forEach(element => {
         addf(element.nameitem,element.taxitem,element.srcimg);
     });
-
-
-    
-    
-}else{
+       
+}
+else{
     console.log('clear localstorage')
     
 }
@@ -51,7 +46,9 @@ const creatcard = document.createElement('div');
    return fathercard.appendChild(creatcard);
 }
 
+
 function addprocudts(){
+    
     const nameproducts = getnameproduct();
     const producttaxs = gettaxproduct();
     const allprodct ={};
@@ -82,13 +79,12 @@ function addprocudts(){
  
 
 
-
 }else{
 alert("ورودی های خود را بررسی کنید!")
 }
 
 
-
+return addcounter();
 
 
 }
@@ -157,11 +153,14 @@ document.addEventListener('DOMContentLoaded', () => {
 function addcounter(){
     let  counterUserNumber = Number(document.getElementById('counter-user').textContent);
     const parseproduct = JSON.parse(localproduct);
-    let newcounter = parseproduct.length;
-    counterUserNumber = newcounter;
-    document.getElementById('counter-user').textContent = counterUserNumber
-    localStorage.setItem("counteruser", JSON.stringify(counterUserNumber));
-    console.log(counterUserNumber)
+        let newcounter = parseproduct.length;
+        counterUserNumber = newcounter;
+        document.getElementById('counter-user').textContent = counterUserNumber
+        localStorage.setItem("counteruser", JSON.stringify(counterUserNumber));
+        console.log('count:',counterUserNumber)
+
+
+    
 }
 
 document.addEventListener('DOMContentLoaded', ()=> {
@@ -170,5 +169,3 @@ document.addEventListener('DOMContentLoaded', ()=> {
     })
 
 })
-
-
