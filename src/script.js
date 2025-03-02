@@ -25,10 +25,10 @@ else{
 
 
 
-function addf(a,b,c){
+function addf(a,b,c,d){
 const creatcard = document.createElement('div');
     creatcard.innerHTML =`
-    <div class=" flex justify-center items-center gap-5 pt-3 cardi">
+    <div class=" flex justify-center items-center gap-5 pt-3 cardi" id="${d}">
         <div class="  border border-gray-600 flex flex-col justify-center items-center rounded-md shadow-md shadow-gray-500  "> 
             <img  src="${c}" alt="" id="imgshow">
             <p class=" text-xl font-bold namekala" id="namekala">${a}</p>
