@@ -1,20 +1,38 @@
 console.log('welcome to erfan shop')
 let addprocudt = document.getElementById('addprocudt');
 const allprodcts = [];
-const localproduct = localStorage.getItem("names");
+const localproduct = localStorage.getItem("erfan");
 const localcounterUser = localStorage.getItem('counteruser');
 const fathercard =document.getElementById('fathercard');
 console.log(localcounterUser);
+erfan();
+async function erfan() {
+    const url = "https://fakestoreapi.com/products";
+    try {
+      const response = await fetch(url);
+      if (!response) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const json = await response.json();
+      console.log(json);
+      localStorage.setItem("erfan", JSON.stringify(json));
+
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  
 if(localproduct){
     document.getElementById('counter-user').textContent = localcounterUser;
     const parseproduct = JSON.parse(localproduct)
     allprodcts.push(...parseproduct)
-    document.getElementById('namekala').textContent = allprodcts.reverse()[0].nameitem; 
-    document.getElementById('taxkala').textContent = allprodcts.reverse()[0].taxitem;
-    document.getElementById('imgshow').src = allprodcts.reverse()[0].srcimg;
+    document.getElementById('namekala').textContent = allprodcts.reverse()[0].title; 
+    document.getElementById('taxkala').textContent = allprodcts.reverse()[0].price;
+    document.getElementById('imgshow').src = allprodcts.reverse()[0].image;
     console.log(parseproduct)
     parseproduct.forEach(element => {
-        addf(element.nameitem,element.taxitem,element.srcimg);
+        addf(element.title,element.price,element.image);
     });
        
 }
@@ -28,9 +46,9 @@ else{
 function addf(a,b,c,d){
 const creatcard = document.createElement('div');
     creatcard.innerHTML =`
-    <div class=" flex justify-center items-center gap-5 pt-3 cardi" id="${d}">
+    <div class=" flex text-xs justify-center items-center gap-5 pt-3 cardi" id="${d}">
         <div class="  border border-gray-600 flex flex-col justify-center items-center rounded-md shadow-md shadow-gray-500  "> 
-            <img  src="${c}" alt="" id="imgshow">
+            <img  width="64px" src="${c}" alt="" id="imgshow">
             <p class=" text-xl font-bold namekala" id="namekala">${a}</p>
             <div class=" flex justify-between px-1 w-full">
                 <p class=" text-md taxkala" id="taxkala">${b}</p>

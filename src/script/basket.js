@@ -5,12 +5,13 @@ const cardBasketImg = document.getElementsByName('card-basket-img');
 
 
 
-function erfan() {
+function dd() {
     parseproductBasket.forEach(element => {
         document.getElementById('card-basket-title').innerHTML = element.nameitem
         console.log(element)
     });    
  
  }   
- 
+ document.getElementById('counter-user').textContent = Number(parseproductBasket.length)
+
 
