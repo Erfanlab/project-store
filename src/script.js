@@ -53,6 +53,8 @@ if(localproduct){
     document.getElementById('imgshow').src = allprodcts.reverse()[0].image;
     document.getElementById('rating').textContent = allprodcts.reverse()[0].rating.rate;
     document.getElementById('nameperson').textContent = allPerson[0].name.firstname;
+    document.getElementById('email').textContent = allPerson[0].email;
+    document.getElementById('phonenumber').textContent = allPerson[0].phone;
     parseproduct.forEach(element => {
         addf(element.title,element.price,element.image,element.rating.rate);
     });
