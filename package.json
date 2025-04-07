@@ -4,8 +4,10 @@
   "description": "sample-1",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tailwindcss -i ./src/style/style.css -o ./src/style/output.css --watch"
+    "dev": "vite",
+    "start": "npx tailwindcss -i ./src/style/style.css -o ./src/style/output.css --watch",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "author": "erfanlabbafi",
   "license": "ISC",
@@ -21,6 +23,7 @@
     "http": "^0.0.1-security",
     "import-export": "^1.0.1",
     "module": "^1.1.0",
-    "socket.io": "^4.8.1"
+    "socket.io": "^4.8.1",
+    "vite": "^6.2.5"
   }
 }

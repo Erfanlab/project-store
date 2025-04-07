@@ -647,6 +647,10 @@ video {
   position: absolute;
 }
 
+.\!relative {
+  position: relative !important;
+}
+
 .relative {
   position: relative;
 }
@@ -2669,6 +2673,14 @@ video {
 
 .forced-color-adjust-none {
   forced-color-adjust: none;
+}
+
+.\[vite\:css\] {
+  vite: css;
+}
+
+.\[vite\:html\] {
+  vite: html;
 }
 
 @font-face {
