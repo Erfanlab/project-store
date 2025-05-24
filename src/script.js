@@ -23,7 +23,7 @@ else{
     
 }
 
-
+    
 
 function addf(a,b,c,d){
 const creatcard = document.createElement('div');
@@ -51,7 +51,15 @@ function addprocudts(){
     
     const nameproducts = getnameproduct();
     const producttaxs = gettaxproduct();
-    const allprodct ={};
+    const allprodct ={};    
+    if (nameproducts &&  producttaxs){
+        allprodct.nameitem = nameproducts;
+        allprodct.taxitem = producttaxs;
+        allprodcts.push(allprodct)
+        localStorage.setItem("names", JSON.stringify(allprodcts));
+        console.log(allprodct)
+        console.log(allprodcts)
+        addf(allprodct.nameitem,allprodct.taxitem);
 
     const imgwoman = getwomanimg();
  

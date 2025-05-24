@@ -14,10 +14,10 @@
     "postcss": "^8.4.49",
     "postcss-import": "^16.1.0",
     "postcss-nesting": "^13.0.1",
-    "tailwindcss": "^3.4.16"
+    "tailwindcss": "^3.4.17"
   },
   "dependencies": {
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "http": "^0.0.1-security",
     "import-export": "^1.0.1",
     "module": "^1.1.0",
