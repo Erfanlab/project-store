@@ -147,7 +147,7 @@ if (Number(producttax) == !isNaN ){
     
 
 }
-s
+
 }
 function getnameproduct(){
   let nameproduct = document.getElementById('nameproduct').value;
